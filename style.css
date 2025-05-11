@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'font';
+    src: url(./fonts/font.woff2) format('woff2'),
+         url(./fonts/font-italic.woff2) format('woff2');
+}
+
+html {
+    height: 100vh;
+}
+
+body {
+    background-color: #305252;
+    height: 120vh;
+    margin: 0
+}
+* {
+    color: #FEFAE0;
+    font-family: 'font';
+}
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #30362F;
+    padding: 1rem;
+    margin-bottom: 5vh
+}
+
+nav a {
+    color: #FEFAE0
+}
+
+.allBoxes {
+    display: flex;
+    height: 100%;
+    margin-bottom: 10vh;
+}
+
+.boxesHalf {
+    display: flex;
+    flex-flow: column;
+    width: 50vw;
+    height: 100vh;
+    align-items: center;
+    margin: 0;
+}
+
+.boxesHalf .box1 {
+    border: 1px solid #7DBBC3;
+    height: 50vh;
+    background-color: #1B998B;
+    width: 90%;
+}
+
+#top-box {
+    margin-bottom: 1vh
+}
+
+#main-box {
+    display: flex;
+    flex-flow: column;
+    width: 50vw;
+    height: 100vh;
+    align-items: center;
+}
+
+#main-box div {
+    width: 90%;
+    height: 100vh;
+    border: 1px solid #7DBBC3;
+    background-color: #3b28cc;
+    justify-items: center;
+}
+
+#main-box div h1 {
+    font-size: 30px;
+}
+
+#main-box div h2 {
+    display: flex;
+  width: 10vw; /* Set this to slightly wider than the longest string */
+  align-items: center;  
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;  
+  border: 2px solid #666;
+  background-color: #1B998B;
+  font-size: 40px;
+}
