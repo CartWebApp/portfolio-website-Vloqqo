@@ -24,6 +24,19 @@ nav {
     padding: 1rem;
     margin-bottom: 5vh
 }
+.box1 h2, p, .box1 a {
+    padding: 1rem;
+    padding-top: 2rem;
+    margin: 0;
+}
+
+p, a {
+    font-size: 20px;
+}
+
+.box1 h2, h1 {
+    text-decoration: underline;
+}
 
 nav a {
     color: #FEFAE0
@@ -52,7 +65,12 @@ nav a {
 }
 
 #top-box {
-    margin-bottom: 1vh
+    margin-bottom: 1vh;
+    animation: 1s slide-left 1 normal;
+}
+
+#bottom-box {
+    animation: 1.5s slide-left 1 normal;
 }
 
 #main-box {
@@ -61,6 +79,7 @@ nav a {
     width: 50vw;
     height: 100vh;
     align-items: center;
+    animation: 2s slide-right 1 normal;
 }
 
 #main-box div {
@@ -85,4 +104,28 @@ nav a {
   border: 2px solid #666;
   background-color: #1B998B;
   font-size: 40px;
+}
+
+.box1, #main-box div {
+    box-shadow: -40px 20px 20px #30362F;
+}
+
+@keyframes slide-left {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0%)
+    }
+}
+
+@keyframes slide-right {
+    from {
+        transform: translateX(200%);
+    }
+
+    to {
+        transform: translateX(0%)
+    }
 }
