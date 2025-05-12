@@ -217,7 +217,7 @@ body.search {
 
 .overflow {
     overflow-x: clip;
-    width: 100%;
+    width: 100vw;
 }
 
 @keyframes slide-left {
