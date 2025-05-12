@@ -22,7 +22,8 @@ nav {
     justify-content: space-evenly;
     background-color: #30362F;
     padding: 1rem;
-    margin-bottom: 5vh
+    margin-bottom: 5vh;
+    border-bottom: 1px solid #7DBBC3;
 }
 .box1 h2, p, .box1 a {
     padding: 1rem;
@@ -134,7 +135,7 @@ ul li {
     background-color: #FEFAE0;
     color: #30362F;
     border-radius: 10px;
-    width: 20%;
+    max-width: 40%;
     text-align: center;
     font-size: 20px;
     box-shadow: -40px 20px 20px #000000;
@@ -151,6 +152,8 @@ ul li.scrolled-in {
 
 ul li a {
     color: #30362F;
+    font-size: 30px;
+    width: 100%;
 }
 
 body.search {
@@ -158,20 +161,23 @@ body.search {
 }
 
 .dynamic-text {
+    display: inline-block;
     position: absolute; /* Dynamically positioned relative to the li */
     background-color: #1B998B;
     color: #FEFAE0;
-    padding: 1rem;
     border-radius: 10px;
     box-shadow: -40px 20px 20px #000000;
-    font-size: 18px;
-    opacity: 0; /* Initially hidden */
-    transform: translateX(20px); /* Start slightly off-screen */
     transition: transform 0.3s ease, opacity 0.3s ease;
     white-space: nowrap; /* Prevent text wrapping */
-    width: 20vw;
-    height: 15vh;
-    white-space: wrap;
+    width: 40vw;
+    max-height: 15vh;
+    white-space: normal;
+    font-size: 35px;
+    text-overflow: ellipsis;
+    padding: 3rem;
+    overflow: hidden;
+    animation: 1s slide-right 1 normal;
+
 }
 
 .dynamic-text.visible {
@@ -196,5 +202,15 @@ body.search {
 
     to {
         transform: translateX(0%)
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-100%)
     }
 }
