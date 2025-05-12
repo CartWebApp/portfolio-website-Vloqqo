@@ -9,9 +9,9 @@ html {
 }
 
 body {
-    background-color: #305252;
     margin: 0;
     overflow-x: clip;
+    background:  #305252;
 }
 * {
     color: #FEFAE0;
@@ -183,6 +183,41 @@ body.search {
 .dynamic-text.visible {
     opacity: 1; /* Make it visible */
     transform: translateX(0); /* Slide into position */
+}
+
+.prints img {
+    width: 25vw;
+    border: 3px solid #7DBBC3;
+}
+
+.printsText {
+    display: flex;
+    flex-flow: column;
+    width: 20vw;
+    margin: 4rem;
+    padding: 2rem;
+}
+
+.prints {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    background-color: #1B998B;
+    padding: 3rem;
+    align-self: center;
+    justify-self: center;
+}
+
+
+.hobbiesFix {
+    display: flex;
+    flex-flow: column;
+    height: 100%
+}
+
+.overflow {
+    overflow-x: clip;
+    width: 100%;
 }
 
 @keyframes slide-left {
