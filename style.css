@@ -4,6 +4,18 @@
          url(./fonts/font-italic.woff2) format('woff2');
 }
 
+@font-face {
+    font-family: 'notod';
+    src: url(./fonts/noto-d-font.woff2) format('woff2'),
+            url(./fonts/noto-d-font-i.woff2);
+}
+
+@font-face {
+    font-family: 'noto';
+    src: url(./fonts/noto-font.woff2) format('woff2'),
+    url(./fonts/noto-font-i.woff2) format('woff2');
+}
+
 html {
     height: 100%;
 }
@@ -95,6 +107,7 @@ nav a {
     font-size: 30px;
 }
 
+
 #main-box div h2 {
     display: flex;
   width: 10vw; /* Set this to slightly wider than the longest string */
@@ -115,7 +128,7 @@ nav a {
     height: 180vh
 }
 
-ul {
+ul.search-stuff {
     list-style: none;
     height: 50%;
     width: 40vw;
@@ -125,10 +138,7 @@ ul {
     align-items: flex-start;
 }
 
-ul #last-li {
-}
-
-ul li {
+ul.search-stuff li {
     margin: 30rem;
     margin-left: 1rem;
     padding: 2rem;
@@ -145,12 +155,12 @@ ul li {
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-ul li.scrolled-in {
+ul.search-stuff li.scrolled-in {
     opacity: 1; /* Make visible */
     transform: translateX(10vw); /* Move slightly to the right */
 }
 
-ul li a {
+ul.search-stuff li a {
     color: #30362F;
     font-size: 30px;
     width: 100%;
@@ -158,6 +168,20 @@ ul li a {
 
 body.search {
     background-color: #152222
+}
+
+fieldset {
+    color: black;
+    width: 70%;
+    margin-top: 3vh
+}
+
+legend {
+    width: fit-content;
+    padding: 2px;
+    margin-left: calc(50% - 35px - 30px);
+    color: black;
+    font-size: 30px;
 }
 
 .dynamic-text {
@@ -180,14 +204,33 @@ body.search {
 
 }
 
+.stuff {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.explanation {
+    width: 50%;
+}
+
+.essay {
+    width: 40%;
+}
+
+.essay h2 {
+    text-align: center;
+}
+
 .dynamic-text.visible {
     opacity: 1; /* Make it visible */
     transform: translateX(0); /* Slide into position */
 }
 
 .prints img {
-    width: 25vw;
-    border: 3px solid #7DBBC3;
+    max-width: 25vw;
+    border-right: 3px solid #7DBBC3;
+    padding-right: 1rem;
+    object-fit: contain;
 }
 
 .printsText {
@@ -218,6 +261,83 @@ body.search {
 .overflow {
     overflow-x: clip;
     width: 100vw;
+}
+
+.resume {
+    background-color: aliceblue;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 60%;
+    align-self: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+.fixResume {
+    display: flex;
+    flex-flow: column;
+}
+
+.resume h1 {
+    margin: 0;
+    font-size: 150px;
+    color: #c8c2b6;
+    z-index: 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+.h1stuff {
+    position: relative;
+}
+
+.header h5 {
+    color: #c8c2b6;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 1rem;
+    font-size: 25px;
+}
+
+.resume h2 {
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 50%;
+    margin: 0;
+    color: white;
+    z-index: 10;
+    background-color: #364739;
+}
+
+.resume .header {
+    background-color: #364739;
+    width: 80%;
+    align-self: center;
+}
+
+.resume *, .allClasses *, .allProjects * {
+   color: black;
+   font-family: 'notod';
+}
+
+.left, .right {
+    width: 40%
+}
+
+.allStuff {
+    display: flex;
+    justify-content: center;
+}
+
+.allProjects h4, .allEducation h4 {
+    margin: 0%
+}
+
+.allProjects p:first-of-type {
+    margin-bottom: 2rem
 }
 
 @keyframes slide-left {
