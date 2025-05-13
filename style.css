@@ -1,34 +1,37 @@
 @font-face {
     font-family: 'font';
     src: url(./fonts/font.woff2) format('woff2'),
-         url(./fonts/font-italic.woff2) format('woff2');
+        url(./fonts/font-italic.woff2) format('woff2');
 }
 
 @font-face {
     font-family: 'notod';
     src: url(./fonts/noto-d-font.woff2) format('woff2'),
-            url(./fonts/noto-d-font-i.woff2);
+        url(./fonts/noto-d-font-i.woff2);
 }
 
 @font-face {
     font-family: 'noto';
     src: url(./fonts/noto-font.woff2) format('woff2'),
-    url(./fonts/noto-font-i.woff2) format('woff2');
+        url(./fonts/noto-font-i.woff2) format('woff2');
 }
 
 html {
     height: 100%;
+    overflow-x: clip;
 }
 
 body {
     margin: 0;
     overflow-x: clip;
-    background:  #305252;
+    background: #305252;
 }
+
 * {
     color: #FEFAE0;
     font-family: 'font';
 }
+
 nav {
     display: flex;
     justify-content: space-evenly;
@@ -37,17 +40,22 @@ nav {
     margin-bottom: 5vh;
     border-bottom: 1px solid #7DBBC3;
 }
-.box1 h2, p, .box1 a {
+
+.box1 h2,
+p,
+.box1 a {
     padding: 1rem;
     padding-top: 2rem;
     margin: 0;
 }
 
-p, a {
+p,
+a {
     font-size: 20px;
 }
 
-.box1 h2, h1 {
+.box1 h2,
+h1 {
     text-decoration: underline;
 }
 
@@ -110,17 +118,19 @@ nav a {
 
 #main-box div h2 {
     display: flex;
-  width: 10vw; /* Set this to slightly wider than the longest string */
-  align-items: center;  
-  justify-content: center;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;  
-  border: 2px solid #666;
-  background-color: #1B998B;
-  font-size: 40px;
+    width: 10vw;
+    /* Set this to slightly wider than the longest string */
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 2px solid #666;
+    background-color: #1B998B;
+    font-size: 40px;
 }
 
-.box1, #main-box div {
+.box1,
+#main-box div {
     box-shadow: -40px 20px 20px #30362F;
 }
 
@@ -149,15 +159,20 @@ ul.search-stuff li {
     text-align: center;
     font-size: 20px;
     box-shadow: -40px 20px 20px #000000;
-    position: relative; /* Needed for the pseudo-element */
-    opacity: 0; /* Initially hidden */
-    transform: translateX(-20px); /* Start slightly to the left */
+    position: relative;
+    /* Needed for the pseudo-element */
+    opacity: 0;
+    /* Initially hidden */
+    transform: translateX(-20px);
+    /* Start slightly to the left */
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 ul.search-stuff li.scrolled-in {
-    opacity: 1; /* Make visible */
-    transform: translateX(10vw); /* Move slightly to the right */
+    opacity: 1;
+    /* Make visible */
+    transform: translateX(10vw);
+    /* Move slightly to the right */
 }
 
 ul.search-stuff li a {
@@ -186,13 +201,15 @@ legend {
 
 .dynamic-text {
     display: inline-block;
-    position: absolute; /* Dynamically positioned relative to the li */
+    position: absolute;
+    /* Dynamically positioned relative to the li */
     background-color: #1B998B;
     color: #FEFAE0;
     border-radius: 10px;
     box-shadow: -40px 20px 20px #000000;
     transition: transform 0.3s ease, opacity 0.3s ease;
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap;
+    /* Prevent text wrapping */
     width: 40vw;
     max-height: 15vh;
     white-space: normal;
@@ -204,13 +221,27 @@ legend {
 
 }
 
+.projectsImg {
+    width: 50vw;
+    object-fit: contain;
+}
+
 .stuff {
     display: flex;
     flex-flow: row wrap;
 }
 
+.essayFix .stuff {
+    justify-content: center;
+}
+
 .explanation {
-    width: 50%;
+    background-color: #114444;
+    box-shadow: 0px 20px 20px #000000;
+    width: 60%;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 10vh;
 }
 
 .essay {
@@ -222,8 +253,8 @@ legend {
 }
 
 .dynamic-text.visible {
-    opacity: 1; /* Make it visible */
-    transform: translateX(0); /* Slide into position */
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .prints img {
@@ -260,7 +291,6 @@ legend {
 
 .overflow {
     overflow-x: clip;
-    width: 100vw;
 }
 
 .resume {
@@ -318,12 +348,15 @@ legend {
     align-self: center;
 }
 
-.resume *, .allClasses *, .allProjects * {
-   color: black;
-   font-family: 'notod';
+.resume *,
+.allClasses *,
+.allProjects * {
+    color: black;
+    font-family: 'notod';
 }
 
-.left, .right {
+.left,
+.right {
     width: 40%
 }
 
@@ -332,12 +365,66 @@ legend {
     justify-content: center;
 }
 
-.allProjects h4, .allEducation h4 {
+.allProjects h4,
+.allEducation h4 {
     margin: 0%
 }
 
 .allProjects p:first-of-type {
     margin-bottom: 2rem
+}
+
+.projectFix {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.project {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
+.projectStuff {
+    display: flex;
+    flex-flow: row;
+    align-self: center;
+    background-color: #1B998B;
+    padding: 2rem;
+    box-shadow: 0px 20px 40px #000000;
+}
+
+.projectText {
+    margin-left: 1rem;
+    padding: 1rem;
+    border: #305252 3px solid;
+}
+
+.lesson {
+    background-color: #114444;
+    box-shadow: 0px 20px 20px #000000;
+    width: 80%;
+    text-align: center;
+    padding: 1rem;
+    margin: 10vh;
+}
+
+.resumeDownload {
+    background-color: #114444;
+    box-shadow: 0px 20px 20px #000000;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 5vh;
+}
+
+.essay {
+    background-color: #1B998B;
+    box-shadow: 0px 20px 20px #000000;
+    width: 60%;
+    text-align: center;
+    padding: 1rem;
+    margin: 10vh;
 }
 
 @keyframes slide-left {
@@ -367,5 +454,113 @@ legend {
 
     to {
         transform: translateX(-100%)
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .boxesHalf {
+        width: 100vw;
+        height: 50vh;
+        margin-bottom: 10vh;
+    }
+
+    #top-box {
+        width: 80vw;
+        height: 50vh;
+        animation: none;
+        box-shadow: 0px 20px 40px #000000;
+        padding-bottom: 5vh;
+    }
+
+    #bottom-box {
+        width: 80vw;
+        height: 50vh;
+        animation: none;
+        box-shadow: 0px 20px 40px #000000;
+        padding-bottom: 5vh;
+    }
+
+    #main-box {
+        animation: none;
+        align-self: center;
+    }
+
+    #main-box div {
+        width: 90vw;
+        height: 50vh;
+        box-shadow: 0px 20px 40px #000000;
+        animation: none;
+        margin-top: 10vh;
+
+    }
+
+    .allBoxes {
+        flex-flow: column;
+        height: 100%;
+    }
+
+    .allBoxes {
+        flex-flow: column;
+        height: 100%;
+    }
+
+    .dynamic-text {
+        box-shadow: -40px 20px 20px #000000;
+        /* Prevent text wrapping */
+        width: 40vw;
+        max-height: 15vh;
+        font-size: 20px;
+        padding: 3rem;
+        overflow: hidden;
+        animation: none;
+        white-space: nowrap;
+    }
+    ul.search-stuff {
+        width: 60vw;
+    }
+    ul.search-stuff li {
+        margin-left: 0;
+        margin-right: 0;
+        width: 60vw;
+        white-space: wrap;
+    }
+    ul.search-stuff li a {
+        font-size: 20px;
+        text-align: center;
+    }
+    ul.search-stuff li.scrolled-in {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    section.prints {
+        flex-flow: column;
+        width: 60vw;
+    }
+    section.printsText {
+        margin: 0;
+        width: 50vw;
+    }
+    section.prints img {
+        max-width: 50vw;
+        border-right: none;
+        padding-right: 0;
+        align-self: center;
+    }
+    section.projectStuff {
+        flex-flow: column;
+        width: 80vw;
+    }
+    img.projectsImg {
+        width: 80vw;
+        margin-bottom: 10vh;
+    }
+    .lesson {
+        width: 80vw;
+        margin-left: 0;
+        margin-right: 0;
+        justify-self: center;
+    }
+    .essay, .explanation {
+        width: 90%;
     }
 }
