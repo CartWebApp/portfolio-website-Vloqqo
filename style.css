@@ -52,6 +52,7 @@ p,
 p,
 a {
     font-size: 20px;
+    line-height: 3rem;
 }
 
 .box1 h2,
@@ -119,7 +120,6 @@ nav a {
 #main-box div h2 {
     display: flex;
     width: 10vw;
-    /* Set this to slightly wider than the longest string */
     align-items: center;
     justify-content: center;
     aspect-ratio: 1 / 1;
@@ -141,7 +141,7 @@ nav a {
 ul.search-stuff {
     list-style: none;
     height: 50%;
-    width: 40vw;
+    width: 100%;
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
@@ -151,6 +151,7 @@ ul.search-stuff {
 ul.search-stuff li {
     margin: 30rem;
     margin-left: 1rem;
+    margin-right: 0;
     padding: 2rem;
     background-color: #FEFAE0;
     color: #30362F;
@@ -407,7 +408,8 @@ legend {
     width: 80%;
     text-align: center;
     padding: 1rem;
-    margin: 10vh;
+    margin-top: 10vh;
+    justify-self: center;
 }
 
 .resumeDownload {
@@ -426,6 +428,43 @@ legend {
     padding: 1rem;
     margin: 10vh;
 }
+
+.contactInfo {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background-color: #1B998B;
+    box-shadow: 0px 20px 20px #000000;
+    width: 70vw;
+    justify-self: center;
+}
+
+.contactInfo ul {
+    list-style-type: none;
+    width:100%;
+    justify-items: center;
+    padding-top: 3rem;
+}
+
+.contactInfo h1 {
+    width: 40vw;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+    margin-bottom: 5vh;
+    border-bottom: 1px solid #7DBBC3;
+}
+
+.contactInfo ul li {
+    width: 30vw;
+    background-color:#7DBBC3;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+    margin-bottom: 10vh;
+    box-shadow: 0px 20px 20px #000000;
+}
+
 
 @keyframes slide-left {
     from {
@@ -457,7 +496,7 @@ legend {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     .boxesHalf {
         width: 100vw;
         height: 50vh;
@@ -515,52 +554,82 @@ legend {
         animation: none;
         white-space: nowrap;
     }
+
     ul.search-stuff {
         width: 60vw;
     }
+
     ul.search-stuff li {
         margin-left: 0;
         margin-right: 0;
         width: 60vw;
         white-space: wrap;
     }
+
     ul.search-stuff li a {
         font-size: 20px;
         text-align: center;
     }
+
     ul.search-stuff li.scrolled-in {
         opacity: 1;
         transform: translateX(0);
     }
+
     section.prints {
         flex-flow: column;
         width: 60vw;
     }
+
     section.printsText {
         margin: 0;
         width: 50vw;
     }
+
     section.prints img {
         max-width: 50vw;
         border-right: none;
         padding-right: 0;
         align-self: center;
     }
+
     section.projectStuff {
         flex-flow: column;
         width: 80vw;
     }
+
     img.projectsImg {
         width: 80vw;
         margin-bottom: 10vh;
     }
+
     .lesson {
         width: 80vw;
         margin-left: 0;
         margin-right: 0;
         justify-self: center;
     }
-    .essay, .explanation {
+
+    .essay,
+    .explanation {
         width: 90%;
     }
+
+    .prints img {
+        border-bottom: 3px solid #7DBBC3;
+        padding-bottom: 2vh
+    }
+
+    #main-box div h2 {
+        width: 40vw;
+    }
+
+    #main-box div,
+    #main-box {
+        height: 60vh
+    }
+}
+
+@media screen and (max-width: 700px) {
+
 }
