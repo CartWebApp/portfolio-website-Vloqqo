@@ -815,4 +815,24 @@ section.thanks {
     #main-box {
         margin-top: 150vh
     }
+    ul.search-stuff {
+        width: 100%;
+    }
+
+    ul.search-stuff li {
+        width: 12vw; 
+        font-size: 16px;
+        white-space: wrap;
+    }
+
+    ul.search-stuff li a {
+        font-size: 16px
+    }
+
+    .dynamic-text {
+        font-size: 16px;
+        max-width: 90%;
+        left: 5%;
+        top: auto;
+    }
 }
