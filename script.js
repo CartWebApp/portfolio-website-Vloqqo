@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const currentPage = window.location.pathname;
+    let currentPage = document.body.id
 // Basically, thgis will check if the current page is search
 // Then it will make InteractionObserver to make scrolling work
-    if (currentPage.includes('search.html')) {
+    if (currentPage === 'searchPage') {
 
         const listItems = document.querySelectorAll("ul li");
         const overflowDiv = document.querySelector(".overflow");
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         listItems.forEach((item) => observer.observe(item));
     }
     // Checks if the page is the index page
-    if (currentPage.includes('index.html')) {
+    if (currentPage === 'index') {
     // Function to create carousel
     // Grabs all the elements that are needed for the carousel (ex .carousel)
     // Them it will create the carousel
@@ -111,4 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         const carouselContainers = document.querySelectorAll('.carousel-container');
         carouselContainers.forEach(container => initializeCarousel(container));
+    }
+});
 
