@@ -80,9 +80,13 @@ nav a {
 
 .boxesHalf .box1 {
     border: 1px solid #7DBBC3;
-    height: 50vh;
     background-color: #1B998B;
     width: 90%;
+    padding: 1rem; /* Add padding for spacing */
+    box-sizing: border-box; /* Include padding in height/width calculations */
+    display: flex;
+    flex-direction: column; /* Ensure content stacks vertically */
+    align-items: center;
 }
 
 #top-box {
