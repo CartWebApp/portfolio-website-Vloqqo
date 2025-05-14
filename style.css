@@ -658,15 +658,21 @@ section.thanks {
 }
 
 @media screen and (max-width: 1024px) {
+    .dropdown-content {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 4rem; /* Adjust based on your nav height */
+    }
     .boxesHalf {
         width: 100vw;
-        height: 50vh;
+        height: 60vh;
         margin-bottom: 10vh;
     }
 
     #top-box {
         width: 80vw;
-        height: 50vh;
+        height: 100vh;
         animation: none;
         box-shadow: 0px 20px 40px #000000;
         padding-bottom: 5vh;
@@ -674,7 +680,7 @@ section.thanks {
 
     #bottom-box {
         width: 80vw;
-        height: 50vh;
+        height: 100vh;
         animation: none;
         box-shadow: 0px 20px 40px #000000;
         padding-bottom: 5vh;
@@ -683,11 +689,12 @@ section.thanks {
     #main-box {
         animation: none;
         align-self: center;
+        margin-top: 150vh;
     }
 
     #main-box div {
         width: 90vw;
-        height: 50vh;
+        height: 100%;
         box-shadow: 0px 20px 40px #000000;
         animation: none;
         margin-top: 10vh;
@@ -787,7 +794,7 @@ section.thanks {
 
     #main-box div,
     #main-box {
-        height: 60vh
+        height: 120vh
     }
 }
 
@@ -804,5 +811,8 @@ section.thanks {
         width: 100%;
         left: 0;
         top: 4rem; /* Adjust based on your nav height */
+    }
+    #main-box {
+        margin-top: 150vh
     }
 }
