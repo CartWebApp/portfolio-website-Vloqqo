@@ -6,26 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tristan Antuna Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
-<body>
+<body class="indexFix">
     <nav>
         <a href="./index.html">Home</a>
         <a href="./contact.html">Contact</a>
-        <a href="./search.html">Search</a>
-    </nav>
+        <div class="dropdown">
+        <a href="./search.html" class="dropbtn">Search</a>
+        <div class="dropdown-content">
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./hobby1.html">3D Printing</a></li>
+                <li><a href="./hobby2.html">Repairs</a></li>
+                <li><a href="./project3.html">WordScrambler</a></li>
+                <li><a href="./project1.html">SuperCar Website</a></li>
+                <li><a href="./project2.html">Budget Calculator</a></li>
+                <li><a href="./essay2.html">Ready Player One</a></li>
+                <li><a href="./essay1.html">Monday Blues</a></li>
+                <li><a href="./project4.html">Adventure Game Project</a></li>
+                <li><a href="./resume.html">Resume</a></li>
+                <li><a href="./search.html">Search</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
     <section class="allBoxes">
         <section class="boxesHalf">
             <section class="box1" id="top-box">
                 <h2>Projects</h2>
-                <p>The projects I have made are all listed and explained on this website. Click to view them!</p>
-                <a href="./search.html#prints-search">Here's one of my Projects!</a>
+                <p>The projects I have made are all listed and explained on this website. Search to view them!</p>
+                <div class="carousel-container">
+                    <div class="carousel">
+                        <div class="carousel-slide">
+                            <img src="./images/supercar.avif" alt="Image of Supercar website">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./images/budget.avif" alt="Image of Budget calculator website">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./images/adventure.avif" alt="Image of Project Adventure Game">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./images/adventure-2.avif" alt="Image of Battle in Adventure Game">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./images/adventure-3.avif" alt="Image of Project Adventure Game">
+                        </div>
+                    </div>
+                    <button class="carousel-button prev">&#10094;</button>
+                    <button class="carousel-button next">&#10095;</button>
+                    <div class="carousel-dots"></div>
+                </div>
             </section>
             <section class="box1" id="bottom-box">
                 <h2>Hobbies</h2>
-                <p>What I do with my free time is shown through the hobbies I have. To see the hobbies I have and an
-                    explanation of them, click the box!</p>
-                <a href="./search.html#scrambler-search">Here's one of my Hobbies!</a>
+                <p>My hobbies are what mainly compose my freetime. To see them, and an
+                    explanation of them, use Search!</p>
+                <div class="carousel-container">
+                    <div class="carousel">
+                        <div class="carousel-slide">
+                            <img src="./images/3dprint.avif" alt="Image of 3D print">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./images/repair.avif" alt="Image of E6430 opened up">
+                        </div>
+                    </div>
+                    <button class="carousel-button prev">&#10094;</button>
+                    <button class="carousel-button next">&#10095;</button>
+                    <div class="carousel-dots"></div>
+                </div>
             </section>
         </section>
 
@@ -34,7 +85,7 @@
                 <h1>About Me</h1>
                 <h2>T.A</h2>
                 <p>My name is Tristan Antuna and I’m currently a junior in high school studying Web Application
-                    Development. I’m passionate about 3D prints and repairs. Once I am done with high-school I 
+                    Development. I’m passionate about 3D prints and repairs. Once I am done with high-school I
                     will move onto college hoping to study Data Science. The current classes I'm taking are to help
                     prepare me for it in college.</p>
             </div>

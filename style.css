@@ -66,15 +66,14 @@ nav a {
 
 .allBoxes {
     display: flex;
-    height: 100%;
-    margin-bottom: 10vh;
+    height: 120vh;
 }
 
 .boxesHalf {
     display: flex;
     flex-flow: column;
     width: 50vw;
-    height: 100vh;
+    height: 100%;
     align-items: center;
     margin: 0;
 }
@@ -99,7 +98,7 @@ nav a {
     display: flex;
     flex-flow: column;
     width: 50vw;
-    height: 100vh;
+    height: 100%;
     align-items: center;
     animation: 2s slide-right 1 normal;
 }
@@ -146,6 +145,12 @@ ul.search-stuff {
     flex-flow: column;
     justify-content: flex-start;
     align-items: flex-start;
+}
+
+.indexFix {
+    display: flex;
+    flex-flow: column;
+    height: 150vh;
 }
 
 ul.search-stuff li {
@@ -465,6 +470,158 @@ legend {
     box-shadow: 0px 20px 20px #000000;
 }
 
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 400px; /* Set fixed height for consistency */
+}
+
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(27, 153, 139, 0.8);
+    color: #FEFAE0;
+    padding: 1rem;
+    text-align: center;
+}
+
+#bottom-box .carousel-container {
+    width: 100%;
+    max-width: 800px;
+}
+
+#bottom-box .carousel {
+    height: 400px;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(48, 82, 82, 0.7);
+    color: #FEFAE0;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.carousel-button:hover {
+    background: rgba(48, 82, 82, 0.9);
+}
+
+.carousel-button.prev {
+    left: 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.carousel-button.next {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(254, 250, 224, 0.5);
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #FEFAE0;
+}
+
+section.thanks {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 60vw;
+    background-color:#3b28cc;
+    padding: 3rem;
+    align-self: center;
+    margin-top: 10vh;
+    justify-self: center;
+    text-align: center;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #30362F;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border: 1px solid #7DBBC3;
+    border-radius: 0 0 5px 5px;
+}
+
+.dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content li {
+    border-bottom: 1px solid #7DBBC3;
+}
+
+.dropdown-content li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a {
+    color: #FEFAE0;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #1B998B;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
 @keyframes slide-left {
     from {
@@ -496,7 +653,7 @@ legend {
     }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
     .boxesHalf {
         width: 100vw;
         height: 50vh;
@@ -630,6 +787,18 @@ legend {
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
+    .carousel-container {
+        margin: 1rem;
+    }
 
+    .carousel-slide img {
+        height: 300px;
+    }
+    .dropdown-content {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 4rem; /* Adjust based on your nav height */
+    }
 }

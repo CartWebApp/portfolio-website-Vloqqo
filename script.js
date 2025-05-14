@@ -1,64 +1,115 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const listItems = document.querySelectorAll("ul li");
-    const overflowDiv = document.querySelector(".overflow");
-    let dynamicParagraph = document.createElement("p");
-    dynamicParagraph.classList.add("dynamic-text");
-    overflowDiv.appendChild(dynamicParagraph);
+    const currentPage = window.location.pathname;
+// Basically, thgis will check if the current page is search
+// Then it will make InteractionObserver to make scrolling work
+    if (currentPage.includes('search.html')) {
 
-    // Check if the user is on a mobile device (screen width <= 768px)
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+        const listItems = document.querySelectorAll("ul li");
+        const overflowDiv = document.querySelector(".overflow");
+        let dynamicParagraph = document.createElement("p");
+        dynamicParagraph.classList.add("dynamic-text");
+        overflowDiv.appendChild(dynamicParagraph);
 
-    const observer = new IntersectionObserver((entries) => {
-        let activeEntry = null;
+        const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                activeEntry = entry.target;
+        const observer = new IntersectionObserver((entries) => {
+            let activeEntry = null;
 
-                // Add the "scrolled-in" class when the item enters the viewport
-                entry.target.classList.add("scrolled-in");
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    activeEntry = entry.target;
 
-                // Update the dynamic paragraph with the text from the data-text attribute
-                const text = entry.target.getAttribute("data-text") || "No additional information available.";
-                dynamicParagraph.textContent = text;
-                const rect = entry.target.getBoundingClientRect();
+                    entry.target.classList.add("scrolled-in");
 
-                if (!isMobile) {
-                    // For non-mobile users, apply animations
-                    dynamicParagraph.style.animation = "none"; // Reset animation
-                    void dynamicParagraph.offsetWidth; // Trigger reflow to restart animation
-                    dynamicParagraph.style.animation = "1s slide-right 1 normal"; // Reapply animation
-                    dynamicParagraph.style.left = `40vw`; // Place it to the right of the li
-                    dynamicParagraph.style.top = `${rect.top + window.scrollY - 60}px`; // Align vertically
+                    const text = entry.target.getAttribute("data-text") || "No additional information available.";
+                    dynamicParagraph.textContent = text;
+                    const rect = entry.target.getBoundingClientRect();
 
+                    if (!isMobile) {
+                        dynamicParagraph.style.animation = "none";
+                        void dynamicParagraph.offsetWidth;
+                        dynamicParagraph.style.animation = "1s slide-right 1 normal"; 
+                        dynamicParagraph.style.left = `40vw`;
+                        dynamicParagraph.style.top = `${rect.top + window.scrollY - 60}px`; 
+
+                    } else {
+                        // mobile needs animations disabled to function
+                        dynamicParagraph.style.animation = "none";
+                        dynamicParagraph.style.left = `45vw`; 
+                        dynamicParagraph.style.top = `${rect.top + window.scrollY - 20}px`; 
+
+                    }
+                    dynamicParagraph.style.position = "absolute";
+                    dynamicParagraph.classList.add("visible");
                 } else {
-                    // For mobile users, disable animations
-                    dynamicParagraph.style.animation = "none";
-                    dynamicParagraph.style.left = `45vw`; // Place it to the right of the li
-                    dynamicParagraph.style.top = `${rect.top + window.scrollY - 20}px`; // Align vertically
-
+                    entry.target.classList.remove("scrolled-in");
+                    if (entry.target === activeEntry) {
+                        dynamicParagraph.classList.remove("visible");
+                        activeEntry = null;
+                    }
                 }
-
-                // Position the dynamic paragraph on the same line as the li
-                dynamicParagraph.style.position = "absolute";
-
-                // Make the dynamic paragraph visible
-                dynamicParagraph.classList.add("visible");
-            } else {
-                // Remove the "scrolled-in" class when the item exits the viewport
-                entry.target.classList.remove("scrolled-in");
-
-                // Hide the dynamic paragraph when the item is out of view
-                if (entry.target === activeEntry) {
-                    dynamicParagraph.classList.remove("visible");
-                    activeEntry = null;
-                }
-            }
+            });
+        }, {
+            threshold: 0.5,
         });
-    }, {
-        threshold: 0.5, // Trigger when 50% of the element is visible
-    });
+        listItems.forEach((item) => observer.observe(item));
+    }
+    // Checks if the page is the index page
+    if (currentPage.includes('index.html')) {
+    // Function to create carousel
+    // Grabs all the elements that are needed for the carousel (ex .carousel)
+    // Them it will create the carousel
+        function initializeCarousel(container) {
+            const carousel = container.querySelector('.carousel');
+            const slides = container.querySelectorAll('.carousel-slide');
+            const prevButton = container.querySelector('.carousel-button.prev');
+            const nextButton = container.querySelector('.carousel-button.next');
+            const dotsContainer = container.querySelector('.carousel-dots');
+            let currentSlide = 0;
+            const totalSlides = slides.length;
 
-    // Observe each list item
-    listItems.forEach((item) => observer.observe(item));
+            slides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+
+            const dots = container.querySelectorAll('.dot');
+
+            function updateDots() {
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+
+            function goToSlide(slideIndex) {
+                currentSlide = slideIndex;
+                carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+                updateDots();
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                goToSlide(currentSlide);
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                goToSlide(currentSlide);
+            }
+            nextButton.addEventListener('click', nextSlide);
+            prevButton.addEventListener('click', prevSlide);
+            const intervalId = setInterval(nextSlide, 5000);
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    clearInterval(intervalId);
+                }
+            });
+        }
+        const carouselContainers = document.querySelectorAll('.carousel-container');
+        carouselContainers.forEach(container => initializeCarousel(container));
+    }
 });
+
