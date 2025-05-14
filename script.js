@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Grabs all the elements that are needed for the carousel (ex .carousel)
     // Them it will create the carousel
         function initializeCarousel(container) {
+            console.log('Initializing carousel for:', container);
             const carousel = container.querySelector('.carousel');
             const slides = container.querySelectorAll('.carousel-slide');
             const prevButton = container.querySelector('.carousel-button.prev');
@@ -110,6 +111,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         const carouselContainers = document.querySelectorAll('.carousel-container');
         carouselContainers.forEach(container => initializeCarousel(container));
-    }
-});
 
