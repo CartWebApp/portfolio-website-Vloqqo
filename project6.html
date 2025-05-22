@@ -36,6 +36,8 @@
         <section class="projectStuff">
             <canvas id="myChart" style="width:100%;width:1800px"></canvas>
         </section>
+        <section class="projectStuff">
+        </section>
     </section>
     </section>
     <section class="lesson">
@@ -73,9 +75,19 @@ https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js
                     }]
                 },
                 options: {
+                    responsive: true,
                     scales: {
                         y: {
                             beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                font: {
+                                    family: 'font'
+                                }
+                            }
                         }
                     }
                 }
