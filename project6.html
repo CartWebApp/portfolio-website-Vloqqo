@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tristan Antuna Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <a href="./index.html">Home</a>
+        <a href="./contact.html">Contact</a>
+        <div class="dropdown">
+            <a href="./search.html" class="dropbtn">Search</a>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./hobby1.html">3D Printing</a></li>
+                    <li><a href="./hobby2.html">Repairs</a></li>
+                    <li><a href="./project3.html">WordScrambler</a></li>
+                    <li><a href="./project1.html">SuperCar Website</a></li>
+                    <li><a href="./project2.html">Budget Calculator</a></li>
+                    <li><a href="./essay2.html">Ready Player One</a></li>
+                    <li><a href="./essay1.html">Monday Blues</a></li>
+                    <li><a href="./project4.html">Adventure Game Project</a></li>
+                    <li><a href="./project5.html">CSS Zen Garden</a></li>
+                    <li><a href="./resume.html">Resume</a></li>
+                    <li><a href="./search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="project">
+        <section class="projectStuff">
+            <canvas id="myChart" style="width:100%;width:1800px"></canvas>
+        </section>
+    </section>
+    </section>
+    <section class="lesson">
+        <a href="https://apollo-zen-garden.netlify.app/">Link to CSS Zen Garden</a>
+    </section>
+    <script src="
+https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js
+"></script>
+    <script type="module">
+        let data = [];
+        import { csv } from "https://cdn.skypack.dev/d3-fetch@3";
+        csv("./data/output.csv").then((data) => {
+            const genres = Object.keys(data[0]);
+            const ratings = genres.map(genre => parseFloat(data[0][genre]));
+            console.log(data[0]); // [{"Hello": "world"}, …
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.columns,
+                    datasets: [{
+                        label: 'Stars',
+                        data: ratings,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>
