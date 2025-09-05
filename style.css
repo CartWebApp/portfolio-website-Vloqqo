@@ -628,6 +628,12 @@ section.thanks {
     display: block;
 }
 
+.animation-stuff {
+    display: flex;
+    width: 80%;
+    align-items: center;
+}
+
 @keyframes slide-left {
     from {
         transform: translateX(-100%);
